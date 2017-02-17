@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="description" />
+    <meta name="keywords" />
+    <meta content="telephone=no, address=no" name="format-detection" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>切换锚点</title>
+</head>
+<style>
+	#container>div,#wrap{
+	  width: 100px;
+	  height: 100px;	  
+	}
+	#wrap{
+	  overflow: hidden;
+	  margin-top: 10px;	  
+	}
+	#container{	    
+	  width: 300%;
+	}
+	#container>div{
+	  float:left;
+	  <!-- transition: all ease-out 0.2s; -->
+	}
+	#tag1{
+	  background: #f66;
+	}
+	#tag2{
+	  background: orange;
+	}
+	#tag3{
+	  background: gray;
+	}
+	<!-- #tag1:not(:target){
+	  /* margin-left: -100%; */
+	}
+	#tag2:target{
+	   transform:translateX(-100%);
+	}
+	#tag3:target{
+	  transform:translateX(-200%);
+	} -->
+	</style>
+<body>
+
+<a href="#tag1">Tag1</a>
+<a href="#tag2">Tag2</a>
+<a href="#tag3">Tag3</a>
+
+<div id="wrap">
+  <div id="container">
+    <div id="tag1"></div><div id="tag2"></div><div id="tag3"></div>
+  </div>
+</div>
+</body>
+<script>
+
+</script>
+</html>

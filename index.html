@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>测试</title>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+<style>
+	body,div,a{
+		margin:0;
+		padding:0;
+	}
+	#wrap{
+	  	width: 100%;
+	  	height: 100%;	
+	  	overflow: hidden;  
+	}
+	#container{
+	   overflow:hidden; 
+	  	margin-top: 10px;
+	  	width: 300vw;
+	  	height: 200px;
+	  	transition: all ease-out 0.2s;
+	}
+	#container div{
+		width: 100vw;
+	  	height: 200px;
+	  	float: left;
+	  	transition: all ease-out 0.2s;
+	}
+	.tag1{
+	  	background: #f66;
+	}
+	.tag2{
+	  	background: orange;
+	}
+	.tag3{
+	  	background: gray;
+	}
+	/*#tag1:not(:target){
+	   margin-left: -100%; 
+	}*/
+	/*#tag2:target{
+	   transform:translateX(-100%);
+	}
+	#tag3:target{
+	  transform:translateX(-200%);
+	}*/
+	</style>
+<body>
+
+<div id="wrap">
+  <div id="container">
+    <div class="tag1"><a href="#tag2">Tag1</a></div>
+    <div class="tag2"><a href="#tag1">Tag2</a></div>
+  </div>
+</div>
+<script type="text/javascript">
+	var oWrap = document.getElementById('wrap');
+	var container = document.getElementById('container');
+	oWrap.onclick = function(ev){
+		var ev = ev || window.event;
+		var target = ev.target || ev.srcElement;
+		if (target.nodeName.toLowerCase() == "a") {
+			
+			var _class = target.href.split("#")[1]
+			 switch(_class){
+                case 'tag1' :
+                    container.style.marginLeft='0%';
+                    break;
+                case 'tag2' :
+                    container.style.marginLeft='-100%';
+                    break;
+            }
+		}
+	}
+	window.onhashchange = function(){
+		console.log(window.location.hash.split('#')[1])
+		var _classes = window.location.hash.split('#')[1]
+		 switch(_classes){
+            case 'tag1' :
+                container.style.marginLeft='0%';
+                break;
+            case 'tag2' :
+                container.style.marginLeft='-100%';
+                break;
+        }
+	}
+</script>
+</body>
+<script>
+
+</script>
+</html>
